@@ -1,5 +1,4 @@
 import Ember from 'ember';
-var gameController = this;
 
 export default Ember.Controller.extend({
 
@@ -34,7 +33,6 @@ export default Ember.Controller.extend({
 		checkGuess: function(){
 			var guess = this.get('guess');
 			var correctPerson = (this.get('currentPersonBeingGuessed'));
-			console.log("****Correct person: " + correctPerson);
 			if (guess === correctPerson.get('fullName')){
 				this.get('peopleWhoHaveAlreadyBeenGuessed').push(correctPerson.get('id'));
 				this.set('nextPerson', this.get('getNextPerson'));

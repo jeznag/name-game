@@ -19,6 +19,7 @@ module('Acceptance: StartGameTest', {
 
 test('start-game works', function(assert) {
   visit('/start-game');
+  var NASEEM_TALEB_IMAGE = "http://upload.wikimedia.org/wikipedia/commons/9/9b/Taleb_mug.JPG";
 
   andThen(function() {
     assert.equal(find('#instructions').length, 1, "Page contains instructions");
@@ -26,8 +27,7 @@ test('start-game works', function(assert) {
     var instructionsText = find('#instructions').text();
     assert.ok(instructionsText.indexOf("Recognise this person?Type in their name and click 'I remember you!' to try your luck.") > -1, "Page contains correct instructions");
   
-    assert.equal(find('#faceImage').length, 1, "Page contains image of face");
-    assert.equal(find('#faceImage').get('src'), 1, "Page shows correct image of face");
+    assert.equal(find("img[src='" + NASEEM_TALEB_IMAGE + "']").length, 1, "Page contains correct image of Nassim Taleb's face");
 
     assert.equal(find('.nameGuess').length, 1, "Page contains text box to guess name");
     assert.equal(find('#submitGuessButton').length, 1, "Page contains submitGuessButton");
@@ -38,6 +38,13 @@ test('start-game works', function(assert) {
 
   andThen(function() {
     assert.equal(find('.incorrectGuessMessage').length, 1, "Page shows incorrectGuessMessage after incorrect guess");
+  });
+
+  fillIn('.nameGuess','Nassim Taleb');
+  find('#submitGuessButton').click();
+  andThen(function() {
+    assert.equal(find('.correctGuess').length, 1, "Page shows correctGuess after correct guess");
+    assert.ok(find('#faceImage').getAttribute('src') !== NASEEM_TALEB_IMAGE, "Page changes to a new face image after correct answer");
   });
 
 });

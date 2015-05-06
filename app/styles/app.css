@@ -1,4 +1,8 @@
-#gameDiv{
+#gameDiv {
 	padding: 30px;
+	text-align: center;
+}
+
+#instructions {
 	text-align: center;
 }
