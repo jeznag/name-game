@@ -17,4 +17,17 @@ var app = new EmberApp();
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
 
+app.import('vendor/html5up/css/font-awesome.min.css');
+app.import('vendor/html5up/css/skel.css');
+app.import('vendor/html5up/css/style.css');
+app.import('vendor/html5up/css/style-1000px.css');
+app.import('vendor/html5up/css/style-desktop.css');
+app.import('vendor/html5up/css/style-mobile.css');
+
+app.import('vendor/html5up/js/jquery.dropotron.min.js');
+app.import('vendor/html5up/js/skel.min.js');
+app.import('vendor/html5up/js/skel-layers.min.js');
+app.import('vendor/html5up/js/init.js');
+
+
 module.exports = app.toTree();

@@ -1,0 +1,9 @@
+{
+	"folders":
+	[
+		{
+			"path": "/C/wamp/www/name-game/name-game/name-game",
+			"folder_exclude_patterns": ["tmp","babel-tmp[\\w]*"]
+		}
+	]
+}

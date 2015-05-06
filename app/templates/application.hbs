@@ -1,3 +1,72 @@
-<h2 id="title">Welcome to Ember.js</h2>
+		<!-- Header -->
+		<div id="header-wrapper">
+			<div id="header" class="container">
+				
+				<!-- Logo -->
+				<h1 id="logo"><a href="index.html">Celebuddy Heads</a></h1>
+				<p>Never forget a name again.</p>
+				
+				<!-- Nav -->
+				<nav id="nav">
+					<ul>
+						<li>
+							{{#link-to 'index' class="icon fa-home"}}Home{{/link-to}}
+						</li>
+						<li>
+							{{#link-to 'about' class="icon fa-cog"}}About{{/link-to}}
+						</li>
+						<li>
+							{{#link-to 'highScores' class="icon fa-retweet"}}High Scores{{/link-to}}
+						</li>
+					</ul>
+				</nav>
 
-{{outlet}}
+			</div>
+		</div>
+			
+		<div >
+			<section>		
+				{{outlet}}
+			</section>
+							
+		</div>
+			
+		<!-- Footer -->
+		<div id="footer-wrapper">
+			<div id="footer" class="container">
+				<header>
+					<h2>Questions or comments? <strong>Get in touch:</strong></h2>
+				</header>
+				<div class="row">
+					<div class="6u">
+						<section>
+							<form method="post" action="#">
+								<div class="row 50%">
+									<div class="6u">
+										<input name="name" placeholder="Name" type="text" />
+									</div>
+									<div class="6u">
+										<input name="email" placeholder="Email" type="text" />
+									</div>
+								</div>
+								<div class="row 50%">
+									<div class="12u">
+										<textarea name="message" placeholder="Message"></textarea>
+									</div>
+								</div>
+								<div class="row 50%">
+									<div class="12u">
+										<a href="#" class="form-button-submit button icon fa-envelope">Send Message</a>
+									</div>
+								</div>
+							</form>
+						</section>
+					</div>
+				</div>
+			</div>
+			<div id="copyright" class="container">
+				<ul class="links">
+					<li>&copy; Name Game. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</div>
+		</div>
