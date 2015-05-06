@@ -11,7 +11,6 @@ export default Ember.Controller.extend({
 	peopleWhoHaveAlreadyBeenGuessed: [],
 
 	currentPersonBeingGuessed: function(){
-		console.log("*** model: " + this.get('model').objectAt(0));
 		return this.get('model').objectAt(0);
 	}.property(),
 
