@@ -23,8 +23,10 @@ export default Ember.Controller.extend({
 	}.property('peopleWhoHaveAlreadyBeenGuessed'),
 
 	peopleWhoHaveNotBeenGuessedYet: function(){
+		var peopleWhoHaveAlreadyBeenGuessed = this.get('peopleWhoHaveAlreadyBeenGuessed');
 		return this.get('model').filter(function(person){
-			var hasAlreadyBeenGuessed = this.get('peopleWhoHaveAlreadyBeenGuessed').indexOf(person.get('id')) > -1;
+			var personID = person.get('id');
+			var hasAlreadyBeenGuessed = peopleWhoHaveAlreadyBeenGuessed.indexOf(personID) > -1;
 			return !hasAlreadyBeenGuessed;
 		});
 	}.property(),
@@ -33,9 +35,10 @@ export default Ember.Controller.extend({
 		checkGuess: function(){
 			var guess = this.get('guess');
 			var correctPerson = (this.get('currentPersonBeingGuessed'));
+
 			if (guess === correctPerson.get('fullName')){
 				this.get('peopleWhoHaveAlreadyBeenGuessed').push(correctPerson.get('id'));
-				this.set('nextPerson', this.get('getNextPerson'));
+				this.set('currentPersonBeingGuessed', this.get('getNextPerson'));
 				this.set('isCorrectGuess', true);
 				this.set('isIncorrectGuess', false);
 			}

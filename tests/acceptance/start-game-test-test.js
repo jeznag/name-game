@@ -37,14 +37,19 @@ test('start-game works', function(assert) {
   find('#submitGuessButton').click();
 
   andThen(function() {
-    assert.equal(find('.incorrectGuessMessage').length, 1, "Page shows incorrectGuessMessage after incorrect guess");
+    setTimeout(function(){
+        assert.equal(find('.incorrectGuess').length, 1, "Page shows incorrectGuess after incorrect guess");
+    }, 2000);
   });
 
   fillIn('.nameGuess','Nassim Taleb');
   find('#submitGuessButton').click();
   andThen(function() {
-    assert.equal(find('.correctGuess').length, 1, "Page shows correctGuess after correct guess");
-    assert.ok(find('#faceImage').getAttribute('src') !== NASEEM_TALEB_IMAGE, "Page changes to a new face image after correct answer");
+    //extra wait for images to load
+    setTimeout(function(){
+      assert.equal(find('.correctGuess').length, 1, "Page shows correctGuess after correct guess");
+      assert.ok(find('#faceImage').attr('src') !== NASEEM_TALEB_IMAGE, "Page changes to a new face image after correct answer");
+    }, 2000);
   });
 
 });
