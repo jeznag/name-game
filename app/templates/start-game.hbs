@@ -1,3 +1,27 @@
 <p id="instructions">Recognise this person?<br>Type in their name and click 'I remember you!' to try your luck.
 </p>
-{{outlet}}
+<div id="gameDiv">
+	Guess Who!<br>
+	<form class="form-inline" {{action "checkGuess" on="submit"}}>
+
+		{{#if isCorrectGuess}}
+		  <p class="correctGuess">Nice one!</p>
+		{{/if}}
+
+		<img id="faceImage" src="{{currentPersonBeingGuessed.photoURL}}"/>
+		<span class="description">{{currentPersonBeingGuessed.description}}</span>
+		
+		{{input value="nameGuess" class="nameGuess"}}
+
+		{{#if isIncorrectGuess}}
+		  <p class="incorrectGuess">Sorry that wasn't quite right. Here's a clue:<br>
+		  	{{currentPersonBeingGuessed.description}}
+		  </p>
+		{{/if}}
+
+		<div class="controls">
+		    <button id="submitGuessButton" type="submit" class="btn btn-primary">Guess!</button>
+		</div>
+	</form>
+</div>
+
