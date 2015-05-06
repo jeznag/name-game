@@ -1,5 +1,6 @@
 # Name-game 
-Game to help you learn colleague's names when you start a new job
+Game to help you learn colleague's names when you start a new job. 
+All tests pass now. Currently only has a pre-built list of people. Will be adding in LinkedIn integration as the next step.
 
 This README outlines the details of collaborating on this Ember application.
 A short introduction of this app could easily go here.
