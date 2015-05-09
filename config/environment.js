@@ -20,7 +20,8 @@ module.exports = function(environment) {
     contentSecurityPolicy: {
       'font-src': "'self' data: fonts.gstatic.com",
       'style-src': "'self' 'unsafe-inline' fonts.googleapis.com",
-      'img-src': "'self' www.facebook.com p.typekit.net"
+      'img-src': "'self' www.facebook.com p.typekit.net https://pbs.twimg.com",
+      'connect-src' : "'self' https://www.kimonolabs.com"
     },
   };
 

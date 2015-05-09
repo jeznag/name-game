@@ -6,7 +6,8 @@ var Router = Ember.Router.extend({
 });
 
 export default Router.map(function() {
-    this.route('startGame', {path : '/start-game'});
-    this.route('highScores', {path : '/high-scores'});
-    this.route('about', {path : '/about'});
+  this.route('startGame', {path : '/start-game'});
+  this.route('highScores', {path : '/high-scores'});
+  this.route('about', {path : '/about'});
+  this.route('loading');
 });

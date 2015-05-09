@@ -3,8 +3,10 @@
 	Guess Who!<br>
 	<form class="form-inline" {{action "checkGuess" on="submit"}}>
 
+		<p id="score">Score: {{score}} points</p>
+
 		{{#if isCorrectGuess}}
-		  <p class="correctGuess">Nice one!</p>
+		  <p id="correctGuess">Nice one!</p>
 		{{/if}}
 
 		<img id="faceImage" src="{{currentPersonBeingGuessed.photoURL}}"/>
@@ -12,13 +14,13 @@
 		{{input value=guess class="nameGuess"}}
 
 		{{#if isIncorrectGuess}}
-		  <p class="incorrectGuess">Sorry that wasn't quite right. Here's a clue:<br>
+		  <p id="incorrectGuess">Sorry that wasn't quite right. Here's a clue:<br>
 		  	{{currentPersonBeingGuessed.description}}
 		  </p>
 		{{/if}}
 
 		<div class="controls">
-		    <button id="submitGuessButton" type="submit" class="btn btn-primary">I remember you!</button>
+			<input id='submitGuessButton' name='submitGuessButton' {{bind-attr disabled=isntValid}} type="submit" class="btn btn-primary" value="I remember you!">
 		</div>
 	</form>
 </div>

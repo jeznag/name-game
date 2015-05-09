@@ -2,6 +2,10 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 
+	queryParams: ['city', 'company'],
+
+	score: 0,
+
 	guess: '',
 
 	isCorrectGuess: false,
@@ -40,6 +44,8 @@ export default Ember.Controller.extend({
 				this.set('currentPersonBeingGuessed', this.get('getNextPerson'));
 				this.set('isCorrectGuess', true);
 				this.set('isIncorrectGuess', false);
+				var score  = this.get('score');
+				this.set('score', ++score);
 			}
 			else{
 				this.set('isCorrectGuess', false);

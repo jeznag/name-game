@@ -1,8 +1,29 @@
-#gameDiv {
+#gameDiv, #gameDiv > form > p, #score, #correctGuess, #incorrectGuess {
 	padding: 30px;
 	text-align: center;
 }
 
 #instructions {
 	text-align: center;
+}
+
+#startGameButton, #submitGuessButton {
+	margin-top: 30px;
+	display: inline-block;
+	padding: 1em 1em 1em 1em !important;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.startPageInputs, #homePageGameOptionsForm, #homePageGameOptionsForm > input, .nameGuess{
+	width: 300px !important;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+}
+
+
+.loadingSpan{
+	text-align: center;
+	font-size: 18px;
 }
