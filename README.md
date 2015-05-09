@@ -1,5 +1,8 @@
 # Name-game 
-Game to help you learn colleague's names when you start a new job. You can play at http://guess-the-name-game.herokuapp.com/
+Game to help you learn colleague's names when you start a new job. Inspired by Zappos' name game - when employees
+log in, they get shown a random colleague's face and have to guess who it is.
+
+You can play the game at http://guess-the-name-game.herokuapp.com/
 
 Currently only has a (very small) pre-built list of people. Will be adding in LinkedIn integration as the next step.
 

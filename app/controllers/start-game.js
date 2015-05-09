@@ -6,6 +6,8 @@ export default Ember.Controller.extend({
 
 	score: 0,
 
+	incorrectAnswersInARow: 0,
+
 	guess: '',
 
 	isCorrectGuess: false,
@@ -34,22 +36,36 @@ export default Ember.Controller.extend({
 		});
 	}.property(),
 
+	cycleToNextPerson : function(correctPerson, wasCorrect){
+		
+		this.get('peopleWhoHaveAlreadyBeenGuessed').push(correctPerson.get('id'));
+		this.set('currentPersonBeingGuessed', this.get('getNextPerson'));
+		this.set('isCorrectGuess', wasCorrect);
+		this.set('isIncorrectGuess', !wasCorrect);
+		this.set('guess', '');
+		this.set('incorrectAnswersInARow', 0);
+	},
+
 	actions: {
 		checkGuess: function(){
 			var guess = this.get('guess');
 			var correctPerson = (this.get('currentPersonBeingGuessed'));
-
 			if (guess === correctPerson.get('fullName')){
-				this.get('peopleWhoHaveAlreadyBeenGuessed').push(correctPerson.get('id'));
-				this.set('currentPersonBeingGuessed', this.get('getNextPerson'));
-				this.set('isCorrectGuess', true);
-				this.set('isIncorrectGuess', false);
+				this.cycleToNextPerson(correctPerson, true);
+				
 				var score  = this.get('score');
 				this.set('score', ++score);
 			}
 			else{
 				this.set('isCorrectGuess', false);
 				this.set('isIncorrectGuess', true);
+				var incorrectGuesses = this.get('incorrectAnswersInARow');
+				if (incorrectGuesses >= 3){
+					this.cycleToNextPerson(correctPerson, false);
+				}
+				else{
+					this.set('incorrectAnswersInARow', ++incorrectGuesses);
+				}
 			}
 		}
 	}

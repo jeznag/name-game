@@ -47,6 +47,7 @@ test('start-game works', function(assert) {
 
   var TEST_USER_NAME = 'TestPerson0';
   var TEST_USER_IMAGE = "http://www.nuancedi.wwwss10.a2hosted.com/client_jobs/Idea_International/0.jpg";
+  var TEST_USER_IMAGE2 = "http://www.nuancedi.wwwss10.a2hosted.com/client_jobs/Idea_International/1.jpg";
 
   andThen(function() {
     assert.equal(find('#instructions').length, 1, "Page contains instructions");
@@ -55,7 +56,6 @@ test('start-game works', function(assert) {
     assert.ok(instructionsText.indexOf("Recognise this person?Type in their name and click 'I remember you!' to try your luck.") > -1, "Page contains correct instructions");
   
     var image = findWithAssert('#faceImage');
-    console.log("image: " + (image).attr("src"));
     assert.equal(find("img[src='" + TEST_USER_IMAGE + "']").length, 1, "Page contains correct image of Nassim Taleb's face");
 
     assert.equal(find('.nameGuess').length, 1, "Page contains text box to guess name");
@@ -65,7 +65,6 @@ test('start-game works', function(assert) {
 
   fillIn('.nameGuess','sdfdsfds');
   click('#submitGuessButton');
-  stop();
   andThen(function() {
     assert.equal(find('#incorrectGuess').length, 1, "Page shows incorrectGuess after incorrect guess");
   });
@@ -76,6 +75,16 @@ test('start-game works', function(assert) {
     assert.equal(find('#correctGuess').length, 1, "Page shows correctGuess after correct guess");
     assert.equal(find("img[src='" + TEST_USER_IMAGE + "']").length, 0, "Page changes to a new face image after correct answer");
     assert.equal(find('#score').text(), "Score: 1 points", "Page increments score after correct guess");
+    assert.equal(find('.nameGuess').val(), "", "Guess box is wiped after a correct answer");
+  });
+
+  click('#submitGuessButton');
+  click('#submitGuessButton');
+  click('#submitGuessButton');
+  andThen(function() {
+    assert.equal(find("img[src='" + TEST_USER_IMAGE + "']").length, 0, "Page changes to a new face image after 3 incorrect answers");
+    assert.equal(find('#incorrectGuess').length, 1, "Page shows incorrectGuess after incorrect guess");
+    assert.equal(find('.nameGuess').val(), "", "Guess box is wiped after 3 incorrect answers");
   });
 
 });
