@@ -1,9 +1,20 @@
 <div id="gameDiv">
 	<p id="instructions">Recognise this person?<br>Type in their name and click 'I remember you!' to try your luck.</p>
-	Guess Who!<br>
 	<form class="form-inline" {{action "checkGuess" on="submit"}}>
 
-		<p id="score">Score: {{score}} points</p>
+		<div id="gameStats">
+			<ul class="column">
+      			<li class="box10">
+					<span id="score">Score: {{score}} points</span><br>
+					<span id="numPeopleToGuess">{{numPeopleToGuess}} people left to guess</span>
+				</li>
+			</ul>
+		</div>
+
+		{{#if isGameOver}}
+		  <p id="gameOverMessage">That's all we have folks! Thanks for playing.</p>
+		{{/if}}
+
 
 		{{#if isCorrectGuess}}
 		  <p id="correctGuess">Nice one!</p>
@@ -19,7 +30,7 @@
 		  </p>
 		{{/if}}
 
-		<div class="controls">
+		<div id="submitGuessButtonDiv" class="controls">
 			<input id='submitGuessButton' name='submitGuessButton' {{bind-attr disabled=isntValid}} type="submit" class="btn btn-primary" value="I remember you!">
 		</div>
 	</form>

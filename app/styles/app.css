@@ -1,6 +1,28 @@
-#gameDiv, #gameDiv > form > p, #score, #correctGuess, #incorrectGuess {
-	padding: 30px;
+#footer-wrapper, ##features-wrapper {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+#instructions {
+	padding-top: 20px;
 	text-align: center;
+	margin-bottom: 1em;
+	font-weight: bold;
+}
+
+#gameDiv > p, #correctGuess, #incorrectGuess, #gameOverMessage, #submitGuessButton {
+	margin-bottom: 1em;
+	text-align: center;
+}
+
+#numPeopleToGuess, #score{
+	text-align: left;
+	margin-left: 10%;
+}
+
+#gameOverMessage {
+	color: red;
+	font-size: 20px;
 }
 
 #instructions {
@@ -15,6 +37,12 @@
 	margin-right: auto;
 }
 
+#submitGuessButtonDiv{
+	margin-left: auto;
+	margin-right: auto;
+	width: 200px;
+}
+
 .startPageInputs, #homePageGameOptionsForm, #homePageGameOptionsForm > input, .nameGuess{
 	width: 300px !important;
 	margin-left: auto;
@@ -26,4 +54,39 @@
 .loadingSpan{
 	text-align: center;
 	font-size: 18px;
+}
+
+#gameStats {
+	margin: 20px auto;
+	width: 500px;
+}
+
+ul.column {
+	float: left;
+	padding: 0;
+	list-style: none;
+	width: 675px;
+}
+ul.column li {
+	background: #fff;
+	float: left;
+	margin: 25px 0 0 25px;
+	display: block;
+	text-align: center;
+	width: 100px;
+	padding:20px;
+	border-radius: 2px 2px 2px 2px;
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+}
+
+ul.column li.box10 {
+	-webkit-box-shadow: 0 7px 4px #777;
+	-moz-box-shadow: 0 7px 4px #777;
+	box-shadow: 0 7px 4px #777;
 }

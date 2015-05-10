@@ -51,6 +51,7 @@ test('start-game works', function(assert) {
 
   andThen(function() {
     assert.equal(find('#instructions').length, 1, "Page contains instructions");
+    assert.equal(find('#numPeopleToGuess').text(), "4 people left to guess", "Page shows you how many people left to guess");
 
     var instructionsText = find('#instructions').text();
     assert.ok(instructionsText.indexOf("Recognise this person?Type in their name and click 'I remember you!' to try your luck.") > -1, "Page contains correct instructions");
@@ -74,25 +75,31 @@ test('start-game works', function(assert) {
   andThen(function() {
     assert.equal(find('#correctGuess').length, 1, "Page shows correctGuess after correct guess");
     assert.equal(find("img[src='" + TEST_USER_IMAGE + "']").length, 0, "Page changes to a new face image after correct answer");
+    assert.ok(find("#faceImage").attr('src').length > 0, "Page changes to a non-blank face image after correct answer");
     assert.equal(find('#score').text(), "Score: 1 points", "Page increments score after correct guess");
     assert.equal(find('.nameGuess').val(), "", "Guess box is wiped after a correct answer");
+    assert.equal(find('#numPeopleToGuess').text(), "3 people left to guess", "Page shows you how many people left to guess");
   });
-
-  click('#submitGuessButton');
-  click('#submitGuessButton');
-  click('#submitGuessButton');
+  
+  tripleClick("#submitGuessButton");
+  
   andThen(function() {
     assert.equal(find("img[src='" + TEST_USER_IMAGE + "']").length, 0, "Page changes to a new face image after 3 incorrect answers");
     assert.equal(find('#incorrectGuess').length, 1, "Page shows incorrectGuess after incorrect guess");
     assert.equal(find('.nameGuess').val(), "", "Guess box is wiped after 3 incorrect answers");
   });
 
+  tripleClick("#submitGuessButton");
+  tripleClick("#submitGuessButton");
+  tripleClick("#submitGuessButton");
+  andThen(function() {
+    assert.equal(find('#gameOverMessage').text(), "That's all we have folks! Thanks for playing.", "Game over message displays after all people shown.");
+  });
+
 });
 
-function stubEndpointForHttpRequest(url, json) {
-    Ember.$.mockjax({
-        url: url,
-        dataType: 'json',
-        responseText: json
-    });
+function tripleClick(selector) {
+    click(selector);
+    click(selector);
+    click(selector);
 }

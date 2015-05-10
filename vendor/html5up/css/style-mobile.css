@@ -7,6 +7,7 @@
 /*********************************************************************************/
 /* Basic                                                                         */
 /*********************************************************************************/
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
 
 	body,input,textarea,select
 	{
@@ -376,3 +377,6 @@
 		margin-top: 2em;
 		padding-top: 2em;
 	}
+
+/* Styles */
+}
