@@ -226,7 +226,7 @@
 
 	#header-wrapper
 	{
-		padding: 0 20px 0 20px;
+		padding: 20px 20px 0 20px;
 	}
 
 	#features-wrapper
@@ -246,7 +246,7 @@
 	
 	#footer-wrapper
 	{
-		padding: 4em 20px 3em 20px;
+		padding: 8em 20px 3em 20px;
 	}
 
 /*********************************************************************************/
@@ -256,6 +256,7 @@
 	#header
 	{
 		padding: 6em 0 4em 0;
+
 	}
 	
 		#header h1

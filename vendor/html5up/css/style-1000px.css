@@ -37,6 +37,10 @@
 		display: none;
 	}
 
+	#header, #features-wrapper, #footer-wrapper{
+		padding-top: 30px
+	}
+
 	/* Image */
 
 		.image
