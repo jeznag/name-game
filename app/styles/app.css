@@ -1,6 +1,7 @@
-#footer-wrapper, ##features-wrapper {
+#footer-wrapper, #features-wrapper {
 	margin-top: 30px;
 	margin-bottom: 30px;
+	text-align: center;
 }
 
 #instructions {
@@ -10,7 +11,7 @@
 	font-weight: bold;
 }
 
-#gameDiv > p, #correctGuess, #incorrectGuess, #gameOverMessage, #submitGuessButton {
+#gameDiv, #gameDiv > p, #correctGuess, #incorrectGuess, #gameOverMessage, #submitGuessButton {
 	margin-bottom: 1em;
 	text-align: center;
 }
@@ -39,7 +40,11 @@
 #submitGuessButtonDiv{
 	margin-left: auto;
 	margin-right: auto;
-	width: 200px;
+	width: 50%;
+}
+
+#faceImage{
+	max-width: 100%;
 }
 
 .startPageInputs, #homePageGameOptionsForm, #homePageGameOptionsForm > input, .nameGuess{
@@ -88,4 +93,12 @@ ul.column li.box10 {
 	-webkit-box-shadow: 0 7px 4px #777;
 	-moz-box-shadow: 0 7px 4px #777;
 	box-shadow: 0 7px 4px #777;
+}
+
+#header-wrapper {
+	padding-top: 20px;
+}
+
+.loading-pane{
+	text-align: center;
 }

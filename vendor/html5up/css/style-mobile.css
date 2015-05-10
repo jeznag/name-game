@@ -380,4 +380,21 @@
 	}
 
 /* Styles */
+
+	#submitGuessButtonDiv{
+		width: 90%;
+	}
+
+	#faceImage{
+	  	height: auto;
+	  	margin-left: auto;
+	  	margin-right: auto;
+	}
+
+	#gameStats{
+		top: 3%;
+	}
+
+
+
 }
