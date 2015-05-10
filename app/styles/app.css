@@ -17,7 +17,6 @@
 
 #numPeopleToGuess, #score{
 	text-align: left;
-	margin-left: 10%;
 }
 
 #gameOverMessage {
@@ -57,8 +56,8 @@
 }
 
 #gameStats {
-	margin: 20px auto;
-	width: 500px;
+	position: fixed;
+	top: 30%;
 }
 
 ul.column {
@@ -73,7 +72,7 @@ ul.column li {
 	margin: 25px 0 0 25px;
 	display: block;
 	text-align: center;
-	width: 100px;
+	width: 200px;
 	padding:20px;
 	border-radius: 2px 2px 2px 2px;
 	-webkit-touch-callout: none;

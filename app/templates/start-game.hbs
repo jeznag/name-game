@@ -11,26 +11,28 @@
 			</ul>
 		</div>
 
-		{{#if isGameOver}}
-		  <p id="gameOverMessage">That's all we have folks! Thanks for playing.</p>
-		{{/if}}
+		<div id="messagesDiv">
+			{{#if isGameOver}}
+			  <p id="gameOverMessage">That's all we have folks! Thanks for playing.</p>
+			{{/if}}
 
 
-		{{#if isCorrectGuess}}
-		  <p id="correctGuess">Nice one!</p>
-		{{/if}}
-
-		<img id="faceImage" src="{{currentPersonBeingGuessed.photoURL}}"/>
-
-		{{input value=guess class="nameGuess"}}
-
-		{{#if isIncorrectGuess}}
-		  <p id="incorrectGuess">Sorry that wasn't quite right. Here's a clue:<br>
-		  	{{currentPersonBeingGuessed.description}}
-		  </p>
-		{{/if}}
-
+			{{#if isCorrectGuess}}
+			  <p id="correctGuess">Nice one!</p>
+			{{/if}}
+		</div>
+		
 		<div id="submitGuessButtonDiv" class="controls">
+			<img id="faceImage" src="{{currentPersonBeingGuessed.photoURL}}"/>
+
+			{{input value=guess class="nameGuess"}}
+
+			{{#if isIncorrectGuess}}
+			  <p id="incorrectGuess">Sorry that wasn't quite right. Here's a clue:<br>
+			  	{{currentPersonBeingGuessed.description}}
+			  </p>
+			{{/if}}
+
 			<input id='submitGuessButton' name='submitGuessButton' {{bind-attr disabled=isntValid}} type="submit" class="btn btn-primary" value="I remember you!">
 		</div>
 	</form>
